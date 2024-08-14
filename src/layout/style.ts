@@ -13,4 +13,6 @@ export const LayoutContent = styled.div`
 
 export const Main = styled.main`
     flex-grow: 1;
+    overflow: auto;
+    
 `
