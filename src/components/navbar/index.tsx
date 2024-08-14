@@ -1,9 +1,10 @@
+import {NavbarWrapper} from "./style.ts";
 
 const Navbar = () => {
     return (
-        <div>
-
-        </div>
+        <NavbarWrapper>
+            <p>Salom</p>
+        </NavbarWrapper>
     );
 };
 
