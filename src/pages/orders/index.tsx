@@ -5,7 +5,7 @@ import IconShoppingList from "../../assets/shopping-list-icon.svg?react";
 import IconArrowDown from "../../assets/chevron-down-icon.svg?react";
 import IconClock from "../../assets/clock-icon.svg?react";
 import OrderCard from "./components/order-card";
-import {newOrderData} from "../../constants/mockData.ts";
+import {inProgressOrderData, inRoadOrderData, newOrderData, readyOrderData} from "../../constants/mockData.ts";
 
 const Orders = () => {
     return (
@@ -39,15 +39,72 @@ const Orders = () => {
                 </Flex>
             </OrdersPageHeader>
             <OrdersPageContent>
-                <Grid>
+                <Grid gutter={16}>
                     <Grid.Col span={3}>
-                        <OrderStage>
+                        <OrderStage bg={"#0E73F6"}>
                             <Box className="header">
-                                Новый (2)
+                                Новый ({newOrderData.length})
                             </Box>
-                            <Stack w={'100%'} px={8} pb={8} style={{overflow: 'auto'}}>
+                            <Stack w={'100%'} px={8} pb={8}>
                                 {
                                     newOrderData.map((data, index) => (
+                                        <OrderCard
+                                            variant={'new'}
+                                            footer={true}
+                                            key={index}
+                                            data={data}
+                                        />
+                                    ))
+                                }
+                            </Stack>
+                        </OrderStage>
+                    </Grid.Col>
+                    <Grid.Col span={3}>
+                        <OrderStage bg={"#F8C51B"}>
+                            <Box className="header">
+                                Заготовка ({inProgressOrderData.length})
+                            </Box>
+                            <Stack w={'100%'} px={8} pb={8}>
+                                {
+                                    inProgressOrderData.map((data, index) => (
+                                        <OrderCard
+                                            key={index}
+                                            data={data}
+                                            footer={index === 0}
+                                            variant={"inprogress"}
+                                        />
+                                    ))
+                                }
+                            </Stack>
+                        </OrderStage>
+                    </Grid.Col>
+                    <Grid.Col span={3}>
+                        <OrderStage bg={"#22C348"}>
+                            <Box className="header">
+                                Готов ({readyOrderData.length})
+                            </Box>
+                            <Stack w={'100%'} px={8} pb={8}>
+                                {
+                                    readyOrderData.map((data, index) => (
+                                        <OrderCard
+                                            key={index}
+                                            data={data}
+                                            footer={index === readyOrderData.length - 1}
+                                            variant={"ready"}
+                                        />
+                                    ))
+                                }
+                            </Stack>
+                        </OrderStage>
+                    </Grid.Col>
+                    <Grid.Col span={3}>
+                        <OrderStage bg={"#1AC19D"}>
+                            <Box className="header">
+                                Курьер в пути ({inRoadOrderData.length})
+                            </Box>
+                            <Stack w={'100%'} px={8} pb={8}>
+                                {
+                                    inRoadOrderData.map((data, index) => (
                                         <OrderCard
                                             key={index}
                                             data={data}

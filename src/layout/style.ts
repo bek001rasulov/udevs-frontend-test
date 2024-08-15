@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const LayoutWrapper = styled.div`
     display: flex;
     height: calc(100vh);
+    overflow: hidden;
 `
 
 export const LayoutContent = styled.div`

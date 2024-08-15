@@ -41,16 +41,18 @@ export const OrdersPageContent = styled.div`
     padding: 16px;
 `
 
-export const OrderStage = styled.div`
+export const OrderStage = styled.div<any>`
     display: flex;
     flex-direction: column;
     gap: 12px;
     border-radius: 6px;
     overflow: hidden;
     background-color: #EEF0F2;
+    //height: calc(100vh - 14%);
+    
     .header{
         padding: 12px;
-        background-color: #0E73F6;
+        background-color: ${props => props.bg};
         color: #FFF;
         text-align: justify;
         font-size: 14px;

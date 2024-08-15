@@ -42,4 +42,5 @@ export const SettingsIcon = styled.div`
 export const SidebarAvatar = styled.div`
     padding: 12px;
     display: flex;
+    border-top: 1px solid #E5E9EB;
 `
